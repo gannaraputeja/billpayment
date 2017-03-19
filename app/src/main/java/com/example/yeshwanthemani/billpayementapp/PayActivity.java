@@ -42,6 +42,7 @@ public class PayActivity extends AppCompatActivity {
        // v.setText(HomeActivity.scanresult);
 
         android.support.v7.app.ActionBar bar = getSupportActionBar();
+        bar.setDisplayHomeAsUpEnabled(true);
         if(bar != null){
             bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF6600")));
             bar.setTitle("BillPay");
@@ -57,7 +58,11 @@ public class PayActivity extends AppCompatActivity {
 
     }
 
-
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
+    }
 
 
 

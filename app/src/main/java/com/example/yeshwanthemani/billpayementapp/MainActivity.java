@@ -113,7 +113,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
          valid = 1;
 
         if( a.equals("") || b.equals(""))
@@ -145,12 +144,23 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+            try {
+                AESCryptography mcrypt = new AESCryptography();
+/* Encrypt */
+                b = AESCryptography.bytesToHex(mcrypt.encrypt(b));
+/* Decrypt */
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+
 
 
             HashMap<String, String> m = new HashMap<String, String>();
 
             m.put("phone", a);
-            m.put("email", b);
+            m.put("password", b);
 
 
 

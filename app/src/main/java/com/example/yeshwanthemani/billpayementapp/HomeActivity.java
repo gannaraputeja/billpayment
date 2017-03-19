@@ -135,18 +135,25 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.nav_camera) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-            Intent i = new Intent(this,Account.class);
+            takePicture();
+        } else if (id == R.id.nav_account) {
+            Intent i = new Intent(this, Account.class);
             startActivity(i);
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_offers) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_about) {
 
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
 
+        } else if (id == R.id.nav_signout){
+            Intent intent = new Intent(this, MainActivity.class)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            finish();
         }
 
      //   DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

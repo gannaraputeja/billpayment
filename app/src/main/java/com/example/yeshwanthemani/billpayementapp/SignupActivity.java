@@ -145,16 +145,24 @@ public class SignupActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... arg0) {
             // TODO Auto-generated method stub
+            String encrypted = new String(password);
 
-
-
-
+            try {
+                AESCryptography mcrypt = new AESCryptography();
+/* Encrypt */
+                encrypted = AESCryptography.bytesToHex(mcrypt.encrypt(password));
+/* Decrypt */
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace();
+            }
 
             HashMap<String, String> m = new HashMap<String, String>();
             m.put("name", name);
             m.put("phone", phone);
             m.put("email", email);
-            m.put("password", password);
+            m.put("password", encrypted);
 
 
             jobj = clientServerInterface.makeHttpRequest("http://www.campusdost.com/movies/jsignup.php", m);
@@ -176,6 +184,8 @@ public class SignupActivity extends AppCompatActivity {
 
             Toast t1 = Toast.makeText(h1,n1,dv);
             t1.show();
+            Intent intent = new Intent(SignupActivity.this,MainActivity.class);
+            startActivity(intent);
         }
     }
 

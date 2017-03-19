@@ -31,6 +31,7 @@ public class Account extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         android.support.v7.app.ActionBar bar = getSupportActionBar();
+        bar.setDisplayHomeAsUpEnabled(true);
         if(bar != null){
             bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF6600")));
             bar.setTitle("BillPay");
@@ -40,6 +41,11 @@ public class Account extends AppCompatActivity {
         new RetreiveData().execute();
     }
 
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
+    }
 
 
     class RetreiveData extends AsyncTask<String,String,String> {
